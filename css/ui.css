@@ -1,0 +1,59 @@
+:root
+{
+    /*Cores do peguin tux*/
+    --preto: #000000;
+    --amarelo: #f5be04;
+    --branco: #fefefc;
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header,footer
+{
+    text-align: center;
+}
+
+header
+{
+    background-color: var(--preto);
+    color: #ffffff;
+}
+
+body
+{
+    height: 100vh;
+    background-color: var(--amarelo);
+}
+
+form
+{
+    padding: 1rem;
+}
+
+.vodka
+{
+    width: 10rem;
+    margin: 0 auto;
+}
+
+.aaa
+{
+    width: 40em;
+    height: 10em;
+    background-color: var(--branco);
+    margin: 1rem auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px black;
+}
+
+footer
+{
+    background-color: var(--preto);
+    color: #ffffff;
+}
