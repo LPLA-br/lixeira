@@ -1,0 +1,2 @@
+# lixeira
+Repositorio_temporario
