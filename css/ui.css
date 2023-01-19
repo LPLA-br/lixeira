@@ -35,7 +35,7 @@ form
     padding: 1rem;
 }
 
-.vodka
+.centralizacao
 {
     width: 10rem;
     margin: 0 auto;
@@ -43,10 +43,10 @@ form
 
 .aaa
 {
-    width: 40em;
-    height: 10em;
     background-color: var(--branco);
     margin: 1rem auto;
+    width: 40em;
+    height: 10em;
     border: 1px solid black;
     border-radius: 10px;
     box-shadow: 10px 10px 10px black;
