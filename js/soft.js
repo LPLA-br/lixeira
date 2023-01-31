@@ -6,6 +6,16 @@
  * Níveis dificuldade 
  * */
 
+/**
+ * inclui o máximo e mínimo.
+ * */
+function inteiroAleatorioDentroLimites(min, max)
+{
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor( Math.radom() * (max - min + 1) + min );
+}
+
 const TAXA_DE_SOMA = 10;
 let button1 = document.getElementById("button1")
 let button2 = document.getElementById("button2")
@@ -14,25 +24,16 @@ let button4 = document.getElementById("button4")
 
 //Pegunta
 let perg = document.querySelector( '#perg' );
-
-//resposta
 let resp = document.querySelector( '#resp' );
-
 let pontos = document.getElementById("pontos")
-
-//botões
-
-// let next = document.querySelector( '#next' );
-// //pontuação
-// let pont = document.querySelector( '#resp' );
-
-//resutado
 let resu = document.getElementById( 'resu' );
 
 let linha = 0;
 let pontuacao = 0;
 
 let pnt = document.getElementById( 'pontval' )
+let contador = document.querySelector('#contagem')
+let numeroContagemReg = 10;
 
 let pergs =
 [
@@ -79,31 +80,66 @@ let respostasCorretas =
 linha++;
 perg.innerHTML = pergs[linha];
 
-function checar()
+function pararIntervalo()
 {
-    if( pergs[linha + 1] == undefined )
-    {
-        window.alert(`Sua pontuação ao fim foi de: ${pontuacao}`);
-    }
-
-    perg.innerHTML = pergs[linha];
-    if( this.innerText == respostasCorretas[linha] )
-    {   
-        resu.innerHTML = "Acertou";
-        resu.style.backgroundColor = "#03A64A"
-        pontuacao += TAXA_DE_SOMA;
-        pontos.innerHTML = `${pontuacao} pontos`
-        linha++;
-    }
-    else
-    {
-        resu.innerHTML = "Errou";
-        resu.style.backgroundColor = "#7c0606"
-        linha++;
-    }
-    perg.innerHTML = pergs[linha];
+    window.clearInterval(x);
 }
 
+function checar(fimTempo)
+{
+    switch( fimTempo )
+    {
+        case true:
+            resu.innerHTML = "fim do tempo!";
+            resu.style;
+            resu.style.backgroundColor = "#03A64A";
+            linha++;
+        default:
+            numeroContagemReg = 10;
+            if( pergs[linha + 1] == undefined )
+            {
+                window.alert(`Sua pontuação ao fim foi de: ${pontuacao}`);
+                contador.innerHTML = 'Fim';
+                pararIntervalo();
+            }
+            else
+            {
+                perg.innerHTML = pergs[linha];
+                if( this.innerText == respostasCorretas[linha] )
+                {   
+                    resu.innerHTML = "Acertou";
+                    resu.style.backgroundColor = "#03A64A";
+                    pontuacao += TAXA_DE_SOMA;
+                    pontos.innerHTML = `${pontuacao} pontos`;
+                    linha++;
+                }
+                else
+                {
+                    resu.innerHTML = "Errou";
+                    resu.style.backgroundColor = "#7c0606";
+                    linha++;
+                }
+                perg.innerHTML = pergs[linha];
+            }
+    }
+}
+
+let x = window.setInterval( function()
+{
+    contador.innerHTML = numeroContagemReg.toString();
+    switch( numeroContagemReg )
+    {
+        case 0:
+            contador.style.color = '#00ff00';
+            numeroContagemReg = 10;
+            checar(true);
+            break;
+        default:
+            numeroContagemReg--;
+            if( numeroContagemReg <= 3 )
+                contador.style.color = '#ff0000';
+    }
+}, 1000);
 
 button1.addEventListener("click", checar)
 button2.addEventListener("click", checar)
