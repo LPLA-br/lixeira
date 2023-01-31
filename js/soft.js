@@ -1,8 +1,16 @@
 /*
- * Protótipo rápido 
+ * ------Protótipo rápido-----
+ * Aleatórização da ordem das perguntas com radom.
+ * Três níveis sequênciais de dificuldade Fácil, médio e difícil.
+ * Temporização para resposta.
+ * Níveis dificuldade 
  * */
 
 const TAXA_DE_SOMA = 10;
+let button1 = document.getElementById("button1")
+let button2 = document.getElementById("button2")
+let button3 = document.getElementById("button3")
+let button4 = document.getElementById("button4")
 
 //Pegunta
 let perg = document.querySelector( '#perg' );
@@ -10,14 +18,16 @@ let perg = document.querySelector( '#perg' );
 //resposta
 let resp = document.querySelector( '#resp' );
 
+let pontos = document.getElementById("pontos")
+
 //botões
-let chek = document.querySelector( '#chck' );
-let next = document.querySelector( '#next' );
-//pontuação
-let pont = document.querySelector( '#resp' );
+
+// let next = document.querySelector( '#next' );
+// //pontuação
+// let pont = document.querySelector( '#resp' );
 
 //resutado
-let resu = document.querySelector( '#resu' );
+let resu = document.getElementById( 'resu' );
 
 let linha = 0;
 let pontuacao = 0;
@@ -27,27 +37,43 @@ let pnt = document.getElementById( 'pontval' )
 let pergs =
 [
     "",
-    "Qual comando move arquivos A-rm B-mv C-mvfile D-move",
-    "Qual comando verifica a conectividade? A-pong B-ping C-netlist D-netest",
-    "Qual comando desliga o pc? A-diecomputer B-poweroff C-powerkill D-fatality",
-    "Qual comando remove arquivo? A-remove B-kill C-rm D-del",
-    "Qual comando lista um diretório? A-ls B-ln C-dir D-cp",
-    "Qual comando abre o manual do sistema? A-man B-manual C-ajuda D-whatis",
-    "Qual comando é utilizado para manipulação de roteamento, dispositivos de rede, interface: A-ip B-pi C-netstat D-net",
-    "Qual comando gerencia serviços em um sistema Linux Moderno: A-systemctl B-sysctl C-init D-ps", "Qual comando cria usuários em um sistema linux: A-addman B-addu C-useradd D-usermod", "Qual comando mostra a data e hora atual: A- B- C- D-"
+    "Qual comando move arquivos: <ul><li>rm</li><li>mv</li><li>mvfile</li><li>move</li></ul>",
+
+    "Qual comando verifica a conectividade? <ul><li>pong</li> <li>ping</li> <li>netlist</li> <li>netest</li> </ul>",
+
+    "Qual comando desliga o pc? <ul><li>diecomputer</li> <li>fatality</li> <li>powerkill</li> <li>poweroff</li></ul>",
+
+    "Qual comando remove arquivo? <ul><li>remove</li> <li>kill</li> <li>rm</li> <li>del</li></ul>",
+
+    "Qual comando lista um diretório? <ul><li>ls</li> <li>ln</li> <li>dir</li> <li>cp</li></ul>",
+
+    "Qual comando abre o manual do sistema? <ul><li>man</li> <li>manual</li> <li>ajuda</li> <li>whatis</li></ul>",
+
+    "Qual comando é utilizado para manipulação de roteamento, dispositivos de rede, interface: <ul><li>pi</li> <li>ip</li> <li>netstat</li> <li>ne</li></ul>",
+
+    "Qual comando gerencia serviços em um sistema Linux Moderno: <ul><li>ps</li> <li>sysctl</li> <li>init</li> <li>systemctl</li></ul>",
+
+    "Qual comando cria usuários em um sistema linux: <ul><li>addman</li> <li>addu</li> <li>useradd</li> <li>usermod</li></ul>", 
+
+    "Qual comando mostra a data e hora atual: <ul><li>data</li> <li>hour</li> <li>day</li> <li>date</li></ul>",
+
+    "Fim"
 ];
 
 let respostasCorretas =
 [
     "",
-    "mv",
-    "ping",
-    "poweroff",
-    "rm",
-    "ls",
-    "man",
-    "ip",
-    "systemctl"
+    "B",
+    "B",
+    "D",
+    "C",
+    "A",
+    "A",
+    "B",
+    "D",
+    "C",
+    "D",
+    ""
 ];
 
 linha++;
@@ -61,19 +87,25 @@ function checar()
     }
 
     perg.innerHTML = pergs[linha];
-    if( resp.value == respostasCorretas[linha] )
-    {
-        resu.innerHTML = "acertaste " + `${pergs[linha]}`;
+    if( this.innerText == respostasCorretas[linha] )
+    {   
+        resu.innerHTML = "Acertou";
+        resu.style.backgroundColor = "#03A64A"
         pontuacao += TAXA_DE_SOMA;
-        pontval.innerHTML = `${pontuacao}`
+        pontos.innerHTML = `${pontuacao} pontos`
         linha++;
     }
     else
     {
-        resu.innerHTML = "erraste" + `${pergs[linha]}`;
+        resu.innerHTML = "Errou";
+        resu.style.backgroundColor = "#7c0606"
         linha++;
     }
     perg.innerHTML = pergs[linha];
 }
 
-chek.addEventListener("click", checar);
+
+button1.addEventListener("click", checar)
+button2.addEventListener("click", checar)
+button3.addEventListener("click", checar)
+button4.addEventListener("click", checar)

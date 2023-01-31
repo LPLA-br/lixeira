@@ -1,16 +1,23 @@
+*
+{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
 :root
 {
     /*Cores do peguin tux*/
-    --preto: #000000;
-    --amarelo: #f5be04;
+    --preto: #024059;
+    --amarelo: #11242b;
     --branco: #fefefc;
+    font-size: 62.5%;
 }
 
-*
+main
 {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    background-color: var(--amarelo);
+    padding: 5rem 0;
 }
 
 header,footer
@@ -22,38 +29,114 @@ header
 {
     background-color: var(--preto);
     color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 0;
 }
 
-body
-{
-    height: 100vh;
-    background-color: var(--amarelo);
+header > h1{
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    color: rgb(221, 218, 25);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-form
-{
-    padding: 1rem;
-}
-
-.centralizacao
-{
-    width: 10rem;
-    margin: 0 auto;
+header > p{
+    font-size: 1.6rem;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 1.6rem;
+    color: rgb(255, 254, 205);
 }
 
 .aaa
 {
     background-color: var(--branco);
-    margin: 1rem auto;
-    width: 40em;
-    height: 10em;
+    margin: auto;
+    width: 70%;
     border: 1px solid black;
     border-radius: 10px;
-    box-shadow: 10px 10px 10px black;
+    box-shadow: 10px 10px 10px #0d1c22;
+    font-size: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(201, 199, 72);
+    color: rgb(32, 32, 20);
+    padding:2rem;
+    text-align: center;
+}
+
+ul{
+    display: flex;
+    gap: 4rem;
+    padding-top: 2rem;
+}
+
+li{
+    list-style: upper-alpha;
+}
+
+#buttons{
+    background-color: var(--branco);
+    margin: 4rem auto;
+    width: 70%;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px #0d1c22;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(201, 199, 72);
+    color: rgb(32, 32, 20);
+    padding:2rem;
+    position: relative;
+    gap: 2rem;
+}
+
+button{
+    height: 3rem;
+    width: 6rem;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 10px 10px 10px rgb(146, 145, 53);
+    cursor: pointer;
+    background-color: #024059;
+    font-size: 1.8rem;
+    color: rgb(255, 254, 205);
+    transition: 0.5s;
+}
+
+button:hover{
+    background-color: #035474;
+}
+
+#resu{
+    height: 5rem;
+    font-size: 3rem;
+    color: #011116;
+    font-weight: 700;
+    background-color: rgb(201, 199, 72);
+}
+
+h2{
+    font-size: 6rem;
+    text-align: center;
+    margin-top: 2rem;
+    color: rgb(221, 218, 25);
 }
 
 footer
 {
-    background-color: var(--preto);
-    color: #ffffff;
+    background-color: #0e1113;
+    color: #ffffff; 
+    font-size: 1.8rem;
+}
+
+.container
+{
+    display: grid;
+    height: 100vh;
 }
