@@ -1,11 +1,3 @@
-/*
- * ------Protótipo rápido-----
- * Aleatórização da ordem das perguntas com radom.
- * Três níveis sequênciais de dificuldade Fácil, médio e difícil.
- * Temporização para resposta.
- * Níveis dificuldade 
- * */
-
 /**
  * inclui o máximo e mínimo.
  * */
